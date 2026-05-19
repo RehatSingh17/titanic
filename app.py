@@ -221,8 +221,24 @@ with col4:
 
 # ── Encode ────────────────────────────────────────────────────
 sex_encoded      = 0 if sex == "Male" else 1
-# The model and scaler were only trained on 4 features: Pclass, Sex, Age, Fare
-input_data       = np.array([[pclass, sex_encoded, age, fare]])
+
+embarked_encoded = {
+    "Southampton": 0,
+    "Cherbourg": 1,
+    "Queenstown": 2
+}[embarked]
+
+input_data = np.array([
+    [
+        pclass,
+        sex_encoded,
+        age,
+        fare,
+        sibsp,
+        parch,
+        embarked_encoded
+    ]
+])
 input_scaled     = scaler.transform(input_data)
 
 # ── Predict button ────────────────────────────────────────────
