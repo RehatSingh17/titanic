@@ -12,15 +12,15 @@ st.set_page_config(
 # ── Custom CSS ────────────────────────────────────────────────
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Source+Sans+3:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap');
 
 html, body, [class*="css"] {
-    font-family: 'Source Sans 3', sans-serif;
+    font-family: 'DM Sans', sans-serif;
 }
 
 .stApp {
-    background: linear-gradient(160deg, #0a1628 0%, #0d2240 50%, #0a1628 100%);
-    color: #e8e4d8;
+    background: #f7f5f0;
+    color: #1a1a1a;
 }
 
 #MainMenu, footer, header { visibility: hidden; }
@@ -28,19 +28,20 @@ html, body, [class*="css"] {
 .hero {
     text-align: center;
     padding: 2.5rem 0 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid #e8e2da;
     margin-bottom: 2rem;
 }
 .hero h1 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'DM Serif Display', serif;
     font-size: 2.6rem;
-    color: #e8e4d8;
+    font-weight: 400;
+    color: #1a1a1a;
     letter-spacing: -0.5px;
     margin-bottom: 0.4rem;
 }
 .hero p {
     font-size: 1rem;
-    color: #8a9ab5;
+    color: #7a6e5f;
     max-width: 420px;
     margin: 0 auto;
     line-height: 1.6;
@@ -48,11 +49,11 @@ html, body, [class*="css"] {
 .year-badge {
     display: inline-block;
     font-size: 0.7rem;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #c4a882;
-    border: 1px solid rgba(196,168,130,0.3);
+    color: #7a6e5f;
+    border: 1px solid #d9d2c8;
     border-radius: 999px;
     padding: 3px 12px;
     margin-bottom: 1rem;
@@ -60,64 +61,66 @@ html, body, [class*="css"] {
 
 .section-label {
     font-size: 0.7rem;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: #8a9ab5;
+    color: #9e9080;
     margin-bottom: 0.75rem;
     margin-top: 1.5rem;
 }
 
 label, .stSelectbox label, .stSlider label, .stNumberInput label {
-    color: #c8d3e0 !important;
+    color: #7a6e5f !important;
     font-size: 0.9rem !important;
-    font-weight: 500 !important;
+    font-weight: 400 !important;
 }
 
 .stSelectbox > div > div,
 .stNumberInput > div > div > input {
-    background: rgba(255,255,255,0.05) !important;
-    border: 1px solid rgba(255,255,255,0.12) !important;
+    background: #fff !important;
+    border: 1px solid #d9d2c8 !important;
     border-radius: 8px !important;
-    color: #e8e4d8 !important;
+    color: #1a1a1a !important;
 }
 .stSelectbox > div > div:hover,
 .stNumberInput > div > div > input:focus {
-    border-color: rgba(196,168,130,0.5) !important;
+    border-color: #1a1a1a !important;
+    box-shadow: none !important;
 }
 
 .stSlider > div > div > div > div {
-    background: #c4a882 !important;
+    background: #1a1a1a !important;
 }
 
 .stButton > button {
     width: 100%;
-    background: linear-gradient(135deg, #c4a882, #a8835a) !important;
-    color: #0a1628 !important;
+    background: #1a1a1a !important;
+    color: #f7f5f0 !important;
     border: none !important;
-    border-radius: 10px !important;
-    padding: 0.75rem 1.5rem !important;
-    font-family: 'Source Sans 3', sans-serif !important;
-    font-size: 1rem !important;
-    font-weight: 600 !important;
-    letter-spacing: 0.5px !important;
+    border-radius: 8px !important;
+    padding: 0.65rem 1.5rem !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 0.88rem !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.6px !important;
+    text-transform: uppercase !important;
     margin-top: 1.5rem !important;
     cursor: pointer !important;
-    transition: opacity 0.2s !important;
+    transition: background 0.18s !important;
 }
-.stButton > button:hover { opacity: 0.88 !important; }
+.stButton > button:hover { background: #2e2e2e !important; }
 
 .result-survived {
-    background: linear-gradient(135deg, rgba(26,90,58,0.4), rgba(20,70,45,0.2));
-    border: 1px solid rgba(74,200,120,0.35);
+    background: #edf7ee;
+    border: 1px solid #b6deb9;
     border-radius: 12px;
     padding: 1.5rem 1.75rem;
     margin-top: 1.5rem;
     text-align: center;
 }
 .result-died {
-    background: linear-gradient(135deg, rgba(90,26,26,0.4), rgba(70,20,20,0.2));
-    border: 1px solid rgba(200,74,74,0.35);
+    background: #fdf0f0;
+    border: 1px solid #f0bcbc;
     border-radius: 12px;
     padding: 1.5rem 1.75rem;
     margin-top: 1.5rem;
@@ -125,17 +128,18 @@ label, .stSelectbox label, .stSlider label, .stNumberInput label {
 }
 .result-icon  { font-size: 2.5rem; margin-bottom: 0.5rem; }
 .result-title {
-    font-family: 'Playfair Display', serif;
+    font-family: 'DM Serif Display', serif;
     font-size: 1.6rem;
+    font-weight: 400;
     margin-bottom: 0.4rem;
 }
-.result-survived .result-title { color: #6ee89a; }
-.result-died    .result-title  { color: #e87a7a; }
-.result-prob   { font-size: 0.9rem; color: #8a9ab5; }
-.result-prob span { font-weight: 600; color: #c4a882; }
+.result-survived .result-title { color: #2e7d32; }
+.result-died    .result-title  { color: #c62828; }
+.result-prob   { font-size: 0.9rem; color: #7a6e5f; }
+.result-prob span { font-weight: 500; color: #1a1a1a; }
 
 .prob-bar-wrap {
-    background: rgba(255,255,255,0.07);
+    background: #e8e2da;
     border-radius: 999px;
     height: 6px;
     margin: 1rem auto 0;
@@ -146,12 +150,13 @@ label, .stSelectbox label, .stSlider label, .stNumberInput label {
 
 .divider {
     border: none;
-    border-top: 1px solid rgba(255,255,255,0.07);
+    border-top: 1px solid #e8e2da;
     margin: 2rem 0;
 }
 
 .factor-card {
-    background: rgba(255,255,255,0.04);
+    background: #fff;
+    border: 1px solid #e8e2da;
     border-radius: 8px;
     padding: 12px;
     text-align: center;
@@ -160,19 +165,19 @@ label, .stSelectbox label, .stSlider label, .stNumberInput label {
     font-size: 0.7rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
-    color: #8a9ab5;
+    color: #9e9080;
     margin-bottom: 4px;
 }
-.factor-val  { font-size: 1rem; font-weight: 600; color: #e8e4d8; }
+.factor-val  { font-size: 1rem; font-weight: 500; color: #1a1a1a; }
 .factor-sig  { font-size: 0.78rem; margin-top: 2px; }
 
 .footnote {
     text-align: center;
     font-size: 0.78rem;
-    color: #4a5a70;
+    color: #b0a898;
     margin-top: 2.5rem;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(255,255,255,0.06);
+    border-top: 1px solid #e8e2da;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -258,7 +263,7 @@ if st.button("Predict survival"):
             </div>
             <div class="prob-bar-wrap">
                 <div class="prob-bar-fill"
-                     style="width:{surv_pct}%; background:#6ee89a"></div>
+                     style="width:{surv_pct}%; background:#4caf50"></div>
             </div>
         </div>""", unsafe_allow_html=True)
     else:
@@ -271,7 +276,7 @@ if st.button("Predict survival"):
             </div>
             <div class="prob-bar-wrap">
                 <div class="prob-bar-fill"
-                     style="width:{surv_pct}%; background:#e87a7a"></div>
+                     style="width:{surv_pct}%; background:#e53935"></div>
             </div>
         </div>""", unsafe_allow_html=True)
 
@@ -284,7 +289,7 @@ if st.button("Predict survival"):
 
     with f1:
         sig   = "↑ Positive" if sex == "Female" else "↓ Negative"
-        color = "#6ee89a"    if sex == "Female" else "#e87a7a"
+        color = "#2e7d32"    if sex == "Female" else "#c62828"
         st.markdown(f"""
         <div class="factor-card">
             <div class="factor-label">Sex</div>
@@ -294,7 +299,7 @@ if st.button("Predict survival"):
 
     with f2:
         sig   = "↑ Positive" if pclass == 1 else ("→ Neutral" if pclass == 2 else "↓ Negative")
-        color = "#6ee89a"    if pclass == 1 else ("#c4a882"   if pclass == 2 else "#e87a7a")
+        color = "#2e7d32"    if pclass == 1 else ("#9e9080"   if pclass == 2 else "#c62828")
         st.markdown(f"""
         <div class="factor-card">
             <div class="factor-label">Class</div>
@@ -304,7 +309,7 @@ if st.button("Predict survival"):
 
     with f3:
         sig   = "↑ Positive" if age < 15 else ("→ Neutral" if age < 40 else "↓ Negative")
-        color = "#6ee89a"    if age < 15 else ("#c4a882"   if age < 40 else "#e87a7a")
+        color = "#2e7d32"    if age < 15 else ("#9e9080"   if age < 40 else "#c62828")
         st.markdown(f"""
         <div class="factor-card">
             <div class="factor-label">Age</div>
